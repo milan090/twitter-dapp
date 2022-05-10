@@ -1,8 +1,6 @@
 import { Avatar, Box, Text } from "@chakra-ui/react";
 import { BigNumber } from "ethers";
-import Image from "next/image";
 import React from "react";
-import { useEthStore } from "../stores/eth.store";
 import { timeSince } from "../utils/time";
 
 interface Props {
@@ -12,11 +10,6 @@ interface Props {
 }
 
 export const Tweet: React.FC<Props> = ({ author, content, timestamp }) => {
-  const [account, loading] = useEthStore((state) => [
-    state.account,
-    state.loading,
-  ]);
-
   const sinceMessage = `${timeSince(new Date(timestamp.toNumber()))} ago`;
 
   return (
@@ -30,13 +23,13 @@ export const Tweet: React.FC<Props> = ({ author, content, timestamp }) => {
     >
       <Box>
         {/* PFP */}
-        {account && (
+        {
           <Avatar
             name="Dan Abrahmov"
             size="md"
-            src={`https://avatars.dicebear.com/api/male/${account}.svg?background=%230000ff`}
+            src={`https://avatars.dicebear.com/api/male/${author}.svg?background=%230000ff`}
           />
-        )}
+        }
       </Box>
       <Box>
         <Box>
