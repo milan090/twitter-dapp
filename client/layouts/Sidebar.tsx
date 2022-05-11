@@ -53,109 +53,112 @@ export const Sidebar: React.FC<{
     setSelected(newSelected);
 
   return (
-    <Box
-      flex="0.7"
-      display="flex"
-      flexDirection="column"
-      paddingX={8}
-      maxWidth={300}
-    >
-      <Box fontSize={"3xl"} margin={4}>
-        <VscTwitter />
-      </Box>
-
-      <Box flex={1}>
-        <SidebarOption
-          Icon={selected === "Home" ? RiHome7Fill : RiHome7Line}
-          text="Home"
-          isActive={Boolean(selected === "Home")}
-          setSelected={handleSelectedChange}
-          redirect={"/"}
-        />
-        <SidebarOption
-          Icon={selected === "Explore" ? FaHashtag : BiHash}
-          text="Explore"
-          isActive={Boolean(selected === "Explore")}
-          setSelected={handleSelectedChange}
-        />
-        <SidebarOption
-          Icon={selected === "Notifications" ? FaBell : FiBell}
-          text="Notifications"
-          isActive={Boolean(selected === "Notifications")}
-          setSelected={handleSelectedChange}
-        />
-        <SidebarOption
-          Icon={selected === "Messages" ? HiMail : HiOutlineMail}
-          text="Messages"
-          isActive={Boolean(selected === "Messages")}
-          setSelected={setSelected}
-        />
-        <SidebarOption
-          Icon={selected === "Bookmarks" ? BsBookmarkFill : BsBookmark}
-          text="Bookmarks"
-          isActive={Boolean(selected === "Bookmarks")}
-          setSelected={setSelected}
-        />
-        <SidebarOption
-          Icon={selected === "Lists" ? RiFileList2Fill : FaRegListAlt}
-          text="Lists"
-          isActive={Boolean(selected === "Lists")}
-          setSelected={setSelected}
-        />
-        <SidebarOption
-          Icon={selected === "Profile" ? BsPersonFill : BsPerson}
-          text="Profile"
-          isActive={Boolean(selected === "Profile")}
-          setSelected={setSelected}
-        />
-        <SidebarOption Icon={CgMoreO} text="More" />
-
-        <Box
-          backgroundColor={"primary.700"}
-          _hover={{ backgroundColor: "primary.800" }}
-          display="flex"
-          alignItems={"center"}
-          justifyContent="center"
-          fontWeight="bold"
-          borderRadius={"3xl"}
-          height={50}
-          mt={20}
-          cursor="pointer"
-        >
-          Tweet
-        </Box>
-      </Box>
+    <Box flex="1" paddingX={6} maxWidth={300}>
       <Box
-        display={"flex"}
-        alignItems="center"
-        mb={8}
-        cursor="pointer"
-        _hover={{ bgColor: "gray.800" }}
-        borderRadius={"full"}
-        px={2}
+        position="fixed"
+        height={"100vh"}
+        display="flex"
+        flexDirection="column"
+        // flex={0.7}
       >
+        <Box fontSize={"3xl"} margin={4}>
+          <VscTwitter />
+        </Box>
+
+        <Box flex={1}>
+          <SidebarOption
+            Icon={selected === "Home" ? RiHome7Fill : RiHome7Line}
+            text="Home"
+            isActive={Boolean(selected === "Home")}
+            setSelected={handleSelectedChange}
+            redirect={"/"}
+          />
+          <SidebarOption
+            Icon={selected === "Explore" ? FaHashtag : BiHash}
+            text="Explore"
+            isActive={Boolean(selected === "Explore")}
+            setSelected={handleSelectedChange}
+          />
+          <SidebarOption
+            Icon={selected === "Notifications" ? FaBell : FiBell}
+            text="Notifications"
+            isActive={Boolean(selected === "Notifications")}
+            setSelected={handleSelectedChange}
+          />
+          <SidebarOption
+            Icon={selected === "Messages" ? HiMail : HiOutlineMail}
+            text="Messages"
+            isActive={Boolean(selected === "Messages")}
+            setSelected={setSelected}
+          />
+          <SidebarOption
+            Icon={selected === "Bookmarks" ? BsBookmarkFill : BsBookmark}
+            text="Bookmarks"
+            isActive={Boolean(selected === "Bookmarks")}
+            setSelected={setSelected}
+          />
+          <SidebarOption
+            Icon={selected === "Lists" ? RiFileList2Fill : FaRegListAlt}
+            text="Lists"
+            isActive={Boolean(selected === "Lists")}
+            setSelected={setSelected}
+          />
+          <SidebarOption
+            Icon={selected === "Profile" ? BsPersonFill : BsPerson}
+            text="Profile"
+            isActive={Boolean(selected === "Profile")}
+            setSelected={setSelected}
+          />
+          <SidebarOption Icon={CgMoreO} text="More" />
+
+          <Box
+            backgroundColor={"primary.700"}
+            _hover={{ backgroundColor: "primary.800" }}
+            display="flex"
+            alignItems={"center"}
+            justifyContent="center"
+            fontWeight="bold"
+            borderRadius={"3xl"}
+            height={50}
+            mt={20}
+            cursor="pointer"
+          >
+            Tweet
+          </Box>
+        </Box>
         <Box
           display={"flex"}
-          // alignItems="center"
-
+          alignItems="center"
+          mb={8}
           cursor="pointer"
           _hover={{ bgColor: "gray.800" }}
-          rounded={"full"}
-          mr={2}
-          py={4}
+          borderRadius={"full"}
           px={2}
+          mt="auto"
         >
-          <Avatar
-            size="sm"
-            src={`https://avatars.dicebear.com/api/male/${account}.svg?background=%230000ff`}
-          />
-        </Box>
-        <Box display={"flex"} flex={1}>
-          <Box flex={1}>
-            <div className={className.handle}>{account.slice(0, 12)}...</div>
+          <Box
+            display={"flex"}
+            // alignItems="center"
+
+            cursor="pointer"
+            _hover={{ bgColor: "gray.800" }}
+            rounded={"full"}
+            mr={2}
+            py={4}
+            px={2}
+          >
+            <Avatar
+              size="sm"
+              src={`https://avatars.dicebear.com/api/male/${account}.svg?background=%230000ff`}
+            />
           </Box>
-          <Box display={"flex"} alignItems="center" mr={2}>
-            <FiMoreHorizontal />
+          <Box display={"flex"} flex={1}>
+            <Box flex={1} mr={5}>
+              <div className={className.handle}>{account.slice(0, 12)}...</div>
+            </Box>
+            <Box display={"flex"} alignItems="center" mr={2}>
+              <FiMoreHorizontal />
+            </Box>
           </Box>
         </Box>
       </Box>
