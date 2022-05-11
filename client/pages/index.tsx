@@ -9,7 +9,7 @@ import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   return (
-    <Box backgroundColor="bg.700" minHeight="100vh" paddingX="1rem">
+    <Box backgroundColor="#000" minHeight="100vh" paddingX="1rem">
       <Box
         marginX="auto"
         width="100%"
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         color="white"
         minHeight="100%"
       >
-        {/* <Sidebar /> */}
+        <Sidebar />
         <Feed />
         {/* <RightBar /> */}
       </Box>
